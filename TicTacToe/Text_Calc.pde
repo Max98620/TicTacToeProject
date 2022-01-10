@@ -5,7 +5,7 @@ String scoreboard;
 
 void textSetup() {
   Font = createFont ("Cambria", height); 
-  scoreboard = Xscore;
+  scoreboard = char(Xscore) + " - " + char(Oscore);
   titleWidth = width * 1/2;
   titleHeight = height * 1/10;
   quit = "X";
