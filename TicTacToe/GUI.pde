@@ -41,11 +41,15 @@ class Spaces {
      createX();
     }
   }
+  
+
+  
   void click() {
     if (boxDetect(mouseX, mouseY, this.x, this.y, this.Width, this.Height)) {
       if (mousePressed) {
         if (type == 0) {
           state +=1;
+          
           if (state%2 == 0){
             type = 1;
           } else {
@@ -62,3 +66,6 @@ class Spaces {
   }
   
 }
+ Spaces getspace (int x, int y){
+   return spaces.get((x-1) + (3*(y-1))); 
+ }

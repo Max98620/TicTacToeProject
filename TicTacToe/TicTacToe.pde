@@ -10,3 +10,4 @@ void setup() {
 void draw() {
     Switcher();
 }
+//create a click function
