@@ -4,7 +4,7 @@ String SinglePlayer = "Single Player";
 String MultiPlayer = "Two Player";
 int textX = 10, textY = 50;
 int ScoreX = 225, ScoreY = 675;
-String Board = (str(Xscore) + "-" + str(Oscore));
+String Board = (Xscore + "-" + Oscore);
 
 void buttonSetup() {
   textSize(textsize);

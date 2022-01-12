@@ -31,7 +31,6 @@ void Switcher(){
      rect(0,600, width, 200); 
      textDraw(scoreboard, Font, height, textColour, LEFT, CENTER, 0, GUIheight, GUIwidth, GUIsize);
      scoreBoard();
-     println(Xscore);
    break;
   }
 }
