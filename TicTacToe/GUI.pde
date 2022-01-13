@@ -3,7 +3,7 @@ int cols = 3, rows = 3;
 int state;
 int GUIsize = 200;
 int GUIwidth = width;
-int Xscore = 0, Oscore= 0;
+int Xscore, Oscore;
 color textColour = color(0);
 int GUIheight = 600;
 int LineDetect;
@@ -67,5 +67,7 @@ class Spaces {
   
 }
  Spaces getspace (int x, int y){
-   return spaces.get((x-1) + (3*(y-1))); 
+   println(x);
+   println(y);
+   return spaces.get(0); 
  }
