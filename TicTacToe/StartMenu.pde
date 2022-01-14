@@ -21,3 +21,18 @@ void startMenu() {
 void scoreBoard() {
   text(Board,ScoreX, ScoreY);
 }
+
+void ElPoopso() {
+      textSize(64);
+      x += 10 * xdir;
+  y += 10 * ydir;
+  if (x + textWidth("el Poopso") > width || x < 0) {
+    xdir *= -1;
+  }
+  if (y > height || y <0) {
+    ydir*= -1;
+  }
+  fill(255,0,0);
+  
+  text("El poopso", x, y);
+}
