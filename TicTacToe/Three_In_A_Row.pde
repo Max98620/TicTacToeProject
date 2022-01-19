@@ -1,21 +1,46 @@
+int tally = 0;
+int posY= 0;
+int posX=0;
+int reset;
+
 void CheckFor3() { 
-  
- int i =0;
-  for(int x=0; x<rows; x++) {
-    i= 0;
-    for(int y=0; y<cols; y++) {
-      if (spaces.get(y).type == 2) {
-        i += 1;
-        println(i);
-      } else if (spaces.get(y).type == 1){
-        i -= 1;
-        println(i);
-      }
-    } 
+  for (int x= 0; x < 3; x++) {
+    int tally = 0;
+    for (int y= 0; y < 3; y++) {
+      int spaceType = getspace(x,y).type;
+       if (spaceType == 2) {
+         tally += 1;
+       } else if (spaceType == 1) {
+         tally -= 1;
+       }
+    }
+    if (tally == 3) {
+      Xscore += 1;
+      reset = 1;
+    } else if (tally == -3) {
+      Oscore += 1;
+      reset = 1;
+    }
+
   }
-   if (i == 3){
-    Xscore += 1;
-  } else if (i == -3){
-    Oscore-=1;
+  
+    for (int y= 0; y < 3; y++) {
+    int tally = 0;
+    for (int x= 0; x < 3; x++) {
+      int spaceType = getspace(x,y).type;
+       if (spaceType == 2) {
+         tally += 1;
+       } else if (spaceType == 1) {
+         tally -= 1;
+       }
+    }
+    if (tally == 3) {
+      Xscore += 1;
+      reset = 1;
+    } else if (tally == -3) {
+      Oscore += 1;
+      reset = 1;
+    }
+
   }
 }

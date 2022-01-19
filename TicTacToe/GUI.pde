@@ -3,7 +3,7 @@ int cols = 3, rows = 3;
 int state;
 int GUIsize = 200;
 int GUIwidth = width;
-int Xscore, Oscore;
+int Xscore = 0, Oscore= 0;
 color textColour = color(0);
 int GUIheight = 600;
 int LineDetect;
@@ -12,6 +12,7 @@ void BoxSetup() {
   for (int x = 0; x < cols; x++) {
    for (int y = 0; y < rows; y++) {
      spaces.add(new Spaces(width*x/cols, (height-GUIsize)*y/rows,width/cols, (height-GUIsize)/rows));
+     println(x+(y*3));
    }
   }
 }
@@ -67,7 +68,5 @@ class Spaces {
   
 }
  Spaces getspace (int x, int y){
-   println(x);
-   println(y);
-   return spaces.get(0); 
+   return spaces.get((x) + (y*3)); 
  }

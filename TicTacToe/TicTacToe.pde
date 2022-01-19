@@ -1,6 +1,3 @@
-int x,y;
-int xdir = 2;
-int ydir = -1;
 int screen = 0;
 void setup() {
   size(600,800);
@@ -13,9 +10,7 @@ void setup() {
 void draw() {
     Switcher();
 }
-
-void mousePressed() {
+//create a click function
+void mousePressed(){
   CheckFor3();
-    println("X's Score: " + Xscore);
-    println("O's Score: " + Oscore);
 }

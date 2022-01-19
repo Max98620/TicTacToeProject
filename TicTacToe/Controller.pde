@@ -22,7 +22,7 @@ void Switcher(){
      }
    break;
    case 2:
-   //SinglePlayer
+   //MultiPlayer
      for (int i=0; i < spaces.size(); i++){
       spaces.get(i).click();
       spaces.get(i).createSpace();
@@ -30,7 +30,39 @@ void Switcher(){
      fill(0);
      rect(0,600, width, 200); 
      textDraw(scoreboard, Font, height, textColour, LEFT, CENTER, 0, GUIheight, GUIwidth, GUIsize);
+     Board = (str(Xscore) + "-" + str(Oscore));
      scoreBoard();
+     if (tally == 3) {
+        Xscore += 1;
+        reset = 1;
+      } else if (tally == -3) {
+        Oscore += 1;
+        reset = 1;
+      }
+  
+    
+    if (reset == 1){
+      screen = 1;
+      s = 4*60;
+      for (int i = 0; i < spaces.size(); i++){
+        spaces.get(i).type = 0;
+      }
+      reset = 0;
+    }
+   break;
+   case 3:
+      //SinglePlayer
+     for (int i=0; i < spaces.size(); i++){
+      spaces.get(i).click();
+      spaces.get(i).createSpace();
+     }
+     fill(0);
+     rect(0,600, width, 200); 
+     textDraw(scoreboard, Font, height, textColour, LEFT, CENTER, 0, GUIheight, GUIwidth, GUIsize);
+     Board = (str(Xscore) + "-" + str(Oscore));
+     scoreBoard();
+     
+     
    break;
   }
 }
