@@ -10,6 +10,8 @@ void Switcher(){
        if (mouseX < (textX + titleWidth) && mouseX > textX && mouseY < (textY + textsize) && mouseY > textY) {
            screen = 1;
            screen1 = 2;
+       } else if (mouseX < (textX + textWidth(SinglePlayer)) && mouseX > textX && mouseY < (textY + 80 + textsize) && mouseY > textY + 80) {
+           screen = 3;
        }
      }
      break;
@@ -51,6 +53,22 @@ void Switcher(){
     }
    break;
    case 3:
+     buttonSetup();
+     background(0);
+     difficulty();
+     if (mousePressed) {
+       if (mouseX < (textX + textWidth("Easy")) && mouseX > textX && mouseY < (textY + textsize) && mouseY > textY) {
+           screen = 1;
+           screen1 = 4;
+           s = 4*60;
+       } else if (mouseX < (textX + textWidth("Hard")) && mouseX > textX && mouseY < (textY + 80 + textsize) && mouseY > textY + 80) {
+           screen = 1;
+           screen1 = 5;
+           s = 4*60;
+       }
+     }
+   break;
+   case 4:
       //SinglePlayer
      for (int i=0; i < spaces.size(); i++){
       spaces.get(i).click();
@@ -61,8 +79,35 @@ void Switcher(){
      textDraw(scoreboard, Font, height, textColour, LEFT, CENTER, 0, GUIheight, GUIwidth, GUIsize);
      Board = (str(Xscore) + "-" + str(Oscore));
      scoreBoard();
-     
-     
+     OpponentEasy();
+     if (reset == 1){
+      screen = 1;
+      s = 4*60;
+      for (int i = 0; i < spaces.size(); i++){
+        spaces.get(i).type = 0;
+      }
+      reset = 0;
+    }
+   break;
+   case 5:
+     for (int i=0; i < spaces.size(); i++){
+      spaces.get(i).click();
+      spaces.get(i).createSpace();
+     }
+     fill(0);
+     rect(0,600, width, 200); 
+     textDraw(scoreboard, Font, height, textColour, LEFT, CENTER, 0, GUIheight, GUIwidth, GUIsize);
+     Board = (str(Xscore) + "-" + str(Oscore));
+     scoreBoard();
+     OpponentHard();
+     if (reset == 1){
+      screen = 1;
+      s = 4*60;
+      for (int i = 0; i < spaces.size(); i++){
+        spaces.get(i).type = 0;
+      }
+      reset = 0;
+    }
    break;
   }
 }

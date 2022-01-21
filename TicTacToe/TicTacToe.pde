@@ -12,5 +12,5 @@ void draw() {
 }
 //create a click function
 void mousePressed(){
-  CheckFor3();
+  
 }

@@ -50,12 +50,14 @@ class Spaces {
       if (mousePressed) {
         if (type == 0) {
           state +=1;
-          
           if (state%2 == 0){
             type = 1;
+            CheckFor3();
           } else {
              type = 2; 
+             CheckFor3();
           }
+          
         }
       }
     }
