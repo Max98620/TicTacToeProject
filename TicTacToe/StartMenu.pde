@@ -5,6 +5,17 @@ String MultiPlayer = "MultiPlayer";
 int textX = 10, textY = 50;
 int ScoreX = 225, ScoreY = 675;
 String Board = (str(Xscore) + "-" + str(Oscore));
+int DiffX = ceil((width/2)-35);
+int DiffY = ceil(height/3);
+String turn;
+
+void GetTurn() {
+  if (state%2 == 0) {
+    turn = "X";
+  } else {
+    turn = "O";
+  }
+}
 
 void buttonSetup() {
   textSize(textsize);
@@ -23,18 +34,35 @@ void startMenu() {
   text(SinglePlayer, textX, textY+130);
 }
 
-void difficulty(){
-  fill(0);
-  rect(textX, textY, textWidth("Easy"), textsize);
-  fill(255);
-  text("Easy", textX, textY+50);
-  
-  fill(0);
-  rect(textX, textY + 80, textWidth("Hard"), textsize);
-  fill(255);
-  text("Hard", textX, textY+130);
+void scoreBoard() {
+  text(Board,50, ScoreY);
+  textSize(60);
+  text(turn + "'s Turn", width - 300, ScoreY);
 }
 
-void scoreBoard() {
-  text(Board,ScoreX, ScoreY);
+void resetButton() {
+  fill(255,0,0);
+  textSize(60);
+  rect(width/3, (height-textsize)-10, textWidth("Reset")+10, textsize);
+  fill(255);
+  text("Reset", (width/3)+5, (height-textsize)+10);
+  if (mousePressed) {
+    if (mouseX < (width/3 + textWidth("Reset")+10) && mouseX > width/3 && mouseY < ((height-textsize)-10 + textsize) && mouseY > (height-textsize)-10) {
+      reset = 1;
+    }
+  }
+}
+
+void backButton() {
+  fill(255,0,0);
+  textSize(60);
+  rect(5, (height-textsize)-10, textWidth("<-")+10, textsize);
+  fill(255);
+  text("<-", 10, (height-textsize)+10);
+  if (mousePressed) {
+    if (mouseX < (5 + textWidth("<-")+10) && mouseX > 5 && mouseY < ((height-textsize)-10 + textsize) && mouseY > (height-textsize)-10) {
+      screen = 1;
+      screen1 = 0;
+    }
+  }
 }

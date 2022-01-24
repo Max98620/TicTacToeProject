@@ -1,15 +1,11 @@
 void OpponentEasy() {
+  int move = int(random(8));
   if (state%2 == 1) {
-    int space = ceil(random(8));
-    if (spaces.get(space).type > 0) {
-      space = ceil(random(8));
+    if (spaces.get(int(move)).type == 0){
+      spaces.get(move).type = 1;
+      state += 1;
     } else {
-      spaces.get(space).type = 1;
+      move = int(random(8));
     }
-    state += 1;
   }
-}
-
-void OpponentHard(){
-  
 }

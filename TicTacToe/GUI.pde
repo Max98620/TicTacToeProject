@@ -72,3 +72,8 @@ class Spaces {
  Spaces getspace (int x, int y){
    return spaces.get((x) + (y*3)); 
  }
+ 
+ Spaces getspaceDiag (int x, int y){
+   return spaces.get((x) * (y)); 
+ }
+ 

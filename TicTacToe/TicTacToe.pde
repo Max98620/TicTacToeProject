@@ -12,5 +12,4 @@ void draw() {
 }
 //create a click function
 void mousePressed(){
-  
 }
