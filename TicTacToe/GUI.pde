@@ -12,7 +12,6 @@ void BoxSetup() {
   for (int x = 0; x < cols; x++) {
    for (int y = 0; y < rows; y++) {
      spaces.add(new Spaces(width*x/cols, (height-GUIsize)*y/rows,width/cols, (height-GUIsize)/rows));
-     println(x+(y*3));
    }
   }
 }
@@ -53,9 +52,12 @@ class Spaces {
           if (state%2 == 0){
             type = 1;
             CheckFor3();
+            OpponentHard();
+            
           } else {
              type = 2; 
              CheckFor3();
+             OpponentHard();
           }
           
         }
@@ -73,7 +75,4 @@ class Spaces {
    return spaces.get((x) + (y*3)); 
  }
  
- Spaces getspaceDiag (int x, int y){
-   return spaces.get((x) * (y)); 
- }
  

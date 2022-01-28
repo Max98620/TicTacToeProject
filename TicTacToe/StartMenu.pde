@@ -5,8 +5,8 @@ String MultiPlayer = "MultiPlayer";
 int textX = 10, textY = 50;
 int ScoreX = 225, ScoreY = 675;
 String Board = (str(Xscore) + "-" + str(Oscore));
-int DiffX = ceil((width/2)-35);
-int DiffY = ceil(height/3);
+int EasyX = width/3;
+int EasyY = (height/2 + 50);
 String turn;
 
 void GetTurn() {
@@ -51,6 +51,22 @@ void resetButton() {
       reset = 1;
     }
   }
+}
+
+void Easy() {
+  //Easy
+  fill(0);
+  rect(textX+40, textY+160, textWidth("Easy"), textsize);
+  fill(255);
+  text("Easy", textX+40, textY+210);
+}
+void Hard(){
+
+  //Hard
+  fill(0);
+  rect(textX+40, textY+240, textWidth("Hard"), textsize);
+  fill(255);
+  text("Hard", textX+40, textY+290);
 }
 
 void backButton() {

@@ -11,8 +11,7 @@ void Switcher(){
            screen = 1;
            screen1 = 2;
        } else if (mouseX < (textX + textWidth(SinglePlayer)) && mouseX > textX && mouseY < (textY + 80 + textsize) && mouseY > textY + 80) {
-           screen = 1;
-           screen1 = 3;
+           screen = 3;
        }
      }
      break;
@@ -58,6 +57,22 @@ void Switcher(){
     }
    break;
    case 3:
+     //Difficulty Select
+     Easy();
+     Hard();
+     if (mousePressed) {
+       if (mouseX < (textX+40 + titleWidth) && mouseX > textX+40 && mouseY < (textY+160 + textsize) && mouseY > textY+160) {
+           screen = 1;
+           s = 4*60;
+           screen1 = 4;
+       } else if (mouseX < ((textX+40) + textWidth("Hard")) && mouseX > textX+40 && mouseY < (textY+240 + textsize) && mouseY > textY+240) {
+           screen = 1;
+           s = 4*60;
+           screen1 = 5;
+       }
+     }
+   break;
+   case 4:
       //SinglePlayer
      for (int i=0; i < spaces.size(); i++){
       spaces.get(i).click();
@@ -72,6 +87,27 @@ void Switcher(){
      resetButton();
      scoreBoard();
      OpponentEasy();
+     if (reset == 1){
+      screen = 1;
+      s = 4*60;
+      for (int i = 0; i < spaces.size(); i++){
+        spaces.get(i).type = 0;
+      }
+      reset = 0;
+    }
+   break;
+   case 5:
+     for (int i=0; i < spaces.size(); i++){
+      spaces.get(i).click();
+      spaces.get(i).createSpace();
+     }
+     fill(0);
+     rect(0,600, width, 200); 
+     textDraw(scoreboard, Font, height, textColour, LEFT, CENTER, 0, GUIheight, GUIwidth, GUIsize);
+     Board = (str(Xscore) + "-" + str(Oscore));
+     GetTurn();
+     resetButton();
+     scoreBoard();
      if (reset == 1){
       screen = 1;
       s = 4*60;
